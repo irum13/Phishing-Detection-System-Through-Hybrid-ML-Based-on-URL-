@@ -1,6 +1,6 @@
 # Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-
-Overview
-
+**Overview
+**
 Phishing attacks are among the most prevalent cybersecurity threats, where attackers create fraudulent websites to deceive users into providing sensitive information. This project aims to detect phishing URLs using various machine learning techniques. A dataset containing phishing and legitimate URLs is analyzed, preprocessed, and used to train several models, including decision trees, support vector machines, random forests, and a hybrid LSD model.
 
 Features
