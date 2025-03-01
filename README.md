@@ -63,7 +63,7 @@ Our model employs advanced techniques like **canopy feature selection, cross-val
 ## 🛠️ Installation & Usage
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-repo/phishing-url-detection.git
+   git clone [https://github.com/your-repo/phishing-url-detection.git](https://github.com/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-)
    ```
 2. Install dependencies:
    ```sh
