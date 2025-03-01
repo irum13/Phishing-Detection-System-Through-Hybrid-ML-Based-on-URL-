@@ -75,7 +75,7 @@ Our model employs advanced techniques like **canopy feature selection, cross-val
    ```
 
 ## 📌 Contributors
-- **Your Name** ([GitHub Profile](https://github.com/irum13))
+- **Irum Naureen** ([GitHub Profile](https://github.com/irum13))
 
 ---
 📢 *If you like this project, don't forget to star ⭐ the repo!*
