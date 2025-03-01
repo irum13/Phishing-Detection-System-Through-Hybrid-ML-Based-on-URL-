@@ -1,123 +1,81 @@
-# Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-
-**Overview
-**
-Phishing attacks are among the most prevalent cybersecurity threats, where attackers create fraudulent websites to deceive users into providing sensitive information. This project aims to detect phishing URLs using various machine learning techniques. A dataset containing phishing and legitimate URLs is analyzed, preprocessed, and used to train several models, including decision trees, support vector machines, random forests, and a hybrid LSD model.
+# 🚀 Phishing Detection System through Machine Learning Based on URL's
 
-Features
+## 📌 Abstract
+Phishing attacks are a major cybersecurity threat, primarily using email distortion and fake websites. Despite multiple studies on phishing prevention, there is no fully effective method. This project leverages **machine learning** to detect phishing URLs using a dataset of **11,000+ websites**. Various models like **Decision Trees, Random Forest, SVM, Gradient Boosting, and a hybrid LSD model** (combining Logistic Regression, SVM, and Decision Trees) are implemented to enhance detection accuracy.
 
-Phishing URL Dataset: Collected from over 11,000 websites, containing 11,054 URLs with 32 attributes.
+## 🔍 Existing System
+Phishing detection systems fall into two main categories:
+1. **List-Based Methods** (Blacklists & Whitelists)
+2. **Machine Learning-Based Methods**
 
-Machine Learning Models: Includes decision trees, linear regression, random forests, naive Bayes, gradient boosting classifiers, K-nearest neighbors, support vector classifiers, and a hybrid LSD model.
+### ❌ Disadvantages of Existing Systems
+- **URLs were collected from a single anti-spam provider**, limiting diversity.
+- **Blacklists fail to provide zero-hour protection**, detecting less than 20% of phishing attempts immediately.
+- **Limited to email-based URLs**, missing other attack vectors.
+- **Lack of hybrid machine learning models**, leading to reduced detection performance.
 
-Feature Selection & Hyperparameter Tuning: Canopy feature selection, cross-fold validation, and Grid Search Hyperparameter Optimization for enhanced model performance.
+## ✅ Proposed System
+Our model uses a **phishing URL dataset** from a reputable repository with features extracted from **11,000+ websites**. 
 
-Evaluation Metrics: Accuracy, precision, recall, F1-score, and specificity are used to assess performance.
+### 🔹 Advantages of Proposed System
+- **Higher prediction accuracy**
+- **Hybrid model (LSD)** combining **Logistic Regression, SVM, and Decision Trees** for better phishing detection.
+- **Canopy feature selection** and **Grid Search Hyperparameter Optimization** for enhanced model performance.
 
-Existing System & Limitations
+## 🔧 Functional Requirements
+1. **Data Collection**
+2. **Data Preprocessing**
+3. **Training and Testing**
+4. **Modeling**
+5. **Prediction**
 
-Existing Approaches:
+## 🏗️ System Architecture
+### 📌 Implementation Modules
+- **Data Exploration**: Load dataset into the system.
+- **Processing**: Read and preprocess data.
+- **Splitting Data**: Divide data into training and testing sets.
+- **Model Generation**: Train machine learning models.
+- **User Signup & Login**: Registration and authentication.
+- **User Input**: Accept URLs for phishing detection.
+- **Prediction**: Display the final phishing URL detection result.
 
-Traditional methods relied on blacklists and whitelists, which are ineffective for detecting zero-hour phishing attacks.
+## 🧠 Algorithms Used
+| Algorithm  | Description |
+|------------|------------|
+| **Linear Regression (LR)** | Predicts dependent variables using independent variables. |
+| **Random Forest** | Combines multiple decision trees for better accuracy. |
+| **Decision Tree** | A tree-based classification model for decision making. |
+| **Support Vector Machine (SVM)** | Finds optimal data classification boundaries. |
+| **Naive Bayes** | Probabilistic model based on Bayes' theorem. |
+| **Gradient Boosting** | Uses boosting techniques to improve performance. |
+| **Hybrid LSD** | Combination of LR, SVM, and Decision Trees using soft and hard voting. |
+| **Stacking Classifier (RF + MLP with LightGBM)** | An ensemble method stacking multiple models for better predictions. |
 
-Prior studies used data from a single anti-spam service provider, limiting generalization.
+## 📌 Conclusion
+Phishing URLs act as legitimate links, tricking users into exposing sensitive information. This study implements a **machine learning-based phishing detection system** using **32 URL attributes** from **11,000+ URLs**. 
 
-Machine-learning-based approaches were implemented but lacked hybrid model efficiency.
+Our model employs advanced techniques like **canopy feature selection, cross-validation, and Grid Search Hyperparameter Optimization** for maximum accuracy. The proposed hybrid LSD model outperforms traditional methods, offering better protection against phishing attacks.
 
-Limitations:
+### 🚀 Future Work
+- Integrating **list-based methods** with **machine learning** to improve phishing detection.
+- Expanding detection to **social media and messaging platforms** beyond email-based phishing attacks.
 
-Blacklists detected fewer than 20% of phishing attacks at zero-hour.
+## 🛠️ Installation & Usage
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-repo/phishing-url-detection.git
+   ```
+2. Install dependencies:
+   ```sh
+   pip install -r requirements.txt
+   ```
+3. Run the model:
+   ```sh
+   python main.py
+   ```
 
-Delayed updates in heuristics-based detection impacted real-time phishing prevention.
+## 📌 Contributors
+- **Your Name** ([GitHub Profile](https://github.com/irum13))
 
-No use of hybrid machine learning models, leading to reduced performance.
-
-Proposed System
-
-Our proposed system enhances phishing detection using a hybrid LSD model that combines Decision Trees, Support Vector Machines, and Logistic Regression with both soft and hard voting mechanisms. Key improvements include:
-
-Hybrid Model: Uses logistic regression, SVM, and decision trees for better accuracy.
-
-Feature Selection & Hyperparameter Optimization: Canopy selection with cross-fold validation and grid search.
-
-Higher Accuracy & Efficiency: Outperforms existing methods in phishing URL detection.
-
-System Architecture
-
-Modules Implemented:
-
-Data Collection: Extract phishing and legitimate URLs from Kaggle repository.
-
-Data Preprocessing: Clean, normalize, and transform dataset for training.
-
-Model Training & Testing: Train machine learning models and evaluate performance.
-
-Prediction System: A functional interface where users input URLs to check for phishing risks.
-
-User Authentication: Sign-up and login functionalities.
-
-Algorithms Used:
-
-Linear Regression (LR)
-
-Random Forest (RF)
-
-Decision Tree (DT)
-
-Support Vector Machine (SVM)
-
-Naive Bayes (NB)
-
-Gradient Boosting (GBM)
-
-Hybrid LSD Model (LR + SVC + DT with soft and hard voting)
-
-Stacking Classifier (RF + MLP with LightGBM)
-
-Implementation Details
-
-Dependencies
-
-Ensure you have the following dependencies installed:
-
-pip install numpy pandas scikit-learn matplotlib seaborn lightgbm
-
-Running the Project
-
-Clone the Repository
-
-git clone https://github.com/your-repo-name.git
-cd phishing-url-detection
-
-Run the Python Script
-
-python phishing_detection.py
-
-User Input for Prediction
-Enter a URL in the system and check whether it is phishing or legitimate.
-
-Evaluation Metrics
-
-The models are evaluated using:
-
-Accuracy: Measures overall correctness.
-
-Precision: Indicates the percentage of correctly identified phishing URLs.
-
-Recall: Measures the detection rate of phishing URLs.
-
-F1-score: Balances precision and recall.
-
-Specificity: Measures true negative rate.
-
-Conclusion
-
-The proposed hybrid LSD model significantly improves phishing URL detection by combining multiple machine learning models. By leveraging canopy feature selection and hyperparameter tuning, our approach enhances accuracy and robustness against phishing attacks. Future work involves integrating list-based approaches with machine learning models for even more effective phishing prevention.
-
-Contribution
-
-Fork the repository and make improvements.
-
-Submit a pull request for review.
-
-Report issues or suggest enhancements in the GitHub Issues section.
-
+---
+📢 *If you like this project, don't forget to star ⭐ the repo!*
