@@ -7,4 +7,5 @@ scikit-learn
 gunicorn
 beautifulsoup4
 requests
+googlesearch-python
 Flask
