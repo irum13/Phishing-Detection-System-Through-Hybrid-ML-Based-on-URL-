@@ -10,4 +10,5 @@ requests
 googlesearch-python
 whois
 python-dateutil
+lightgbm
 Flask
