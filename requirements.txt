@@ -8,7 +8,6 @@ gunicorn
 beautifulsoup4
 requests
 googlesearch-python
-search
 whois
 python-dateutil
 Flask
