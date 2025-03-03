@@ -5,4 +5,5 @@ pandas
 seaborn
 scikit-learn
 gunicorn
+beautifulsoup4
 Flask
