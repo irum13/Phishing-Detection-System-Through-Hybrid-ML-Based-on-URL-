@@ -4,5 +4,4 @@ numpy
 pandas
 seaborn
 scikit-learn
-warnings
 Flask
