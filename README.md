@@ -84,7 +84,7 @@ If you want to run this notebook online, open it in **Google Colab**:
 ## 🖥️ Application UI Screenshots
 
 ### 🏠 Home Page
-![Home Page]("C:\Users\IRUM NAUREEN\Downloads\Phishing Detection code\static\images\Images\Home Page.png")
+![Home Page]("Images\Home Page.png")
 
 ### 📝 User Signup
 ![User Signup]("C:\Users\IRUM NAUREEN\Downloads\Phishing Detection code\static\images\Images\Sign Up Page.png")
