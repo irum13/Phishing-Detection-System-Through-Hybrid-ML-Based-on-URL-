@@ -81,6 +81,27 @@ You can view the full Jupyter Notebook on **Nbviewer** here:
 If you want to run this notebook online, open it in **Google Colab**:  
 🚀 [Run on Colab](https://colab.research.google.com/github/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/main/org.ipynb)
 
+## 🖥️ Application UI Screenshots
+
+### 🏠 Home Page
+![Home Page]("C:\Users\IRUM NAUREEN\Downloads\Phishing Detection code\static\images\Images\Home Page.png")
+
+### 📝 User Signup
+![User Signup]("C:\Users\IRUM NAUREEN\Downloads\Phishing Detection code\static\images\Images\Sign Up Page.png")
+
+### 🔐 User Login
+![User Login]("C:\Users\IRUM NAUREEN\Downloads\Phishing Detection code\static\images\Images\Login Page.png")
+
+### 🔍 URL Search Page
+![URL Search]("C:\Users\IRUM NAUREEN\Downloads\Phishing Detection code\static\images\Images\URL Search Page.png")
+
+### 📊 URL Result Page 1
+![URL Result Page 1]("C:\Users\IRUM NAUREEN\Downloads\Phishing Detection code\static\images\Images\URL Result Page - 1.png")
+
+### 📊 URL Result Page 2
+![URL Result Page 2]("C:\Users\IRUM NAUREEN\Downloads\Phishing Detection code\static\images\Images\URL Result Page - 2.png")
+
+
 ## 📌 Contributors
 - **Irum Naureen** ([GitHub Profile](https://github.com/irum13))
 
