@@ -81,6 +81,26 @@ You can view the full Jupyter Notebook on **Nbviewer** here:
 If you want to run this notebook online, open it in **Google Colab**:  
 🚀 [Run on Colab](https://colab.research.google.com/github/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/main/org.ipynb)
 
+## 📸 Application Screenshots
+
+### 🏠 Home Page
+![Home Page](https://github.com/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/bd7c7efba647e0f574dabdbffd29ee23d8e1d74b/home_page.png)
+
+### 📝 User Signup
+![User Signup](https://github.com/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/bd7c7efba647e0f574dabdbffd29ee23d8e1d74b/sign_up_page.png)
+
+### 🔐 User Login
+![User Login](https://github.com/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/bd7c7efba647e0f574dabdbffd29ee23d8e1d74b/login_page.png)
+
+### 🔍 URL Search Page
+![URL Search Page](https://github.com/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/bd7c7efba647e0f574dabdbffd29ee23d8e1d74b/url_search_page.png)
+
+### 📊 URL Result Page 1
+![Result Page 1](https://github.com/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/bd7c7efba647e0f574dabdbffd29ee23d8e1d74b/url_result_page_1.png)
+
+### 📊 URL Result Page 2
+![Result Page 2](https://github.com/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/bd7c7efba647e0f574dabdbffd29ee23d8e1d74b/url_result_page_2.png)
+
 
 ## 📌 Contributors
 - **Irum Naureen** ([GitHub Profile](https://github.com/irum13))
