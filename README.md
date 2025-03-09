@@ -84,22 +84,22 @@ If you want to run this notebook online, open it in **Google Colab**:
 ## 🖥️ Application UI Screenshots
 
 ### 🏠 Home Page
-![Home Page]("Images\Home Page.png")
+![Home Page]("Images\home_page.png")
 
 ### 📝 User Signup
-![User Signup]("C:\Users\IRUM NAUREEN\Downloads\Phishing Detection code\static\images\Images\Sign Up Page.png")
+![User Signup]("Images\sign_up_page.png")
 
 ### 🔐 User Login
-![User Login]("C:\Users\IRUM NAUREEN\Downloads\Phishing Detection code\static\images\Images\Login Page.png")
+![User Login]("Images\login_pageage.png")
 
 ### 🔍 URL Search Page
-![URL Search]("C:\Users\IRUM NAUREEN\Downloads\Phishing Detection code\static\images\Images\URL Search Page.png")
+![URL Search]("Images\url_search_page.png")
 
 ### 📊 URL Result Page 1
-![URL Result Page 1]("C:\Users\IRUM NAUREEN\Downloads\Phishing Detection code\static\images\Images\URL Result Page - 1.png")
+![URL Result Page 1]("Images\url_result_page_1.png")
 
 ### 📊 URL Result Page 2
-![URL Result Page 2]("C:\Users\IRUM NAUREEN\Downloads\Phishing Detection code\static\images\Images\URL Result Page - 2.png")
+![URL Result Page 2]("Images\url_result_page_2.png")
 
 
 ## 📌 Contributors
