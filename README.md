@@ -101,9 +101,5 @@ If you want to run this notebook online, open it in **Google Colab**:
 ### 📊 URL Result Page 2
 ![Result Page 2](https://github.com/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/bd7c7efba647e0f574dabdbffd29ee23d8e1d74b/url_result_page_2.png)
 
-
-## 📌 Contributors
-- **Irum Naureen** ([GitHub Profile](https://github.com/irum13))
-
 ---
 📢 *If you like this project, don't forget to star ⭐ the repo!*
