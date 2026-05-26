@@ -1,26 +1,28 @@
 {% extends "base.html" %}
 {% block title %}Result - Phishing Detection System{% endblock %}
 {% block content %}
-<div class="panel">
-    <p class="muted mb-1">Analysis result</p>
-    <h1 class="h3 fw-bold {% if is_safe %}result-safe{% else %}result-risk{% endif %}">
+<section class="status-band {% if is_safe %}status-safe{% else %}status-risk{% endif %}">
+    <div class="eyebrow">Analysis result</div>
+    <h1 class="{% if is_safe %}result-safe{% else %}result-risk{% endif %}">
         {% if is_safe %}Likely legitimate{% else %}Potential phishing risk{% endif %}
     </h1>
-    <p class="mb-3"><strong>URL:</strong> {{ url }}</p>
-    <div class="row g-3">
-        <div class="col-md-6">
-            <div class="p-3 border rounded">
-                <div class="muted">Safe probability</div>
-                <div class="display-6 fw-bold result-safe">{{ safe_percent }}%</div>
-            </div>
+    <p class="muted mb-0">Scanned URL</p>
+    <p class="fs-5 fw-semibold text-break">{{ url }}</p>
+
+    <div class="score-grid">
+        <div class="score">
+            <div class="muted">Safe probability</div>
+            <div class="score-value result-safe">{{ safe_percent }}%</div>
         </div>
-        <div class="col-md-6">
-            <div class="p-3 border rounded">
-                <div class="muted">Phishing probability</div>
-                <div class="display-6 fw-bold result-risk">{{ phishing_percent }}%</div>
-            </div>
+        <div class="score">
+            <div class="muted">Phishing probability</div>
+            <div class="score-value result-risk">{{ phishing_percent }}%</div>
         </div>
     </div>
-    <a class="btn btn-primary mt-4" href="{{ url_for('url') }}">Check another URL</a>
-</div>
+
+    <div class="actions mt-4">
+        <a class="btn-app btn-main" href="{{ url_for('url') }}">Check another URL</a>
+        <a class="btn-app btn-quiet" href="{{ url_for('home') }}">Back home</a>
+    </div>
+</section>
 {% endblock %}

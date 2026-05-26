@@ -1,18 +1,41 @@
 {% extends "base.html" %}
 {% block title %}Home - Phishing Detection System{% endblock %}
 {% block content %}
-<section class="hero">
-    <div>
-        <p class="text-uppercase fw-semibold text-primary">Hybrid ML URL analysis</p>
-        <h1 class="display-5 fw-bold">Phishing Detection System</h1>
-        <p class="lead muted">Check suspicious URLs with a trained machine-learning model using lexical, domain, and page-signal features.</p>
-        <div class="d-flex gap-2 flex-wrap">
-            <a class="btn btn-primary btn-lg" href="{{ url_for('url') }}">Check a URL</a>
-            <a class="btn btn-outline-secondary btn-lg" href="{{ url_for('about') }}">Project details</a>
+<section class="hero-grid">
+    <div class="hero-copy">
+        <div class="eyebrow">URL threat screening</div>
+        <h1 class="hero-title">Check suspicious links before you trust them.</h1>
+        <p class="hero-text">A machine-learning phishing detector that inspects URL structure, domain signals, page links, redirects, and web metadata before returning a risk score.</p>
+        <div class="actions">
+            <a class="btn-app btn-main" href="{{ url_for('url') }}">Analyze a URL</a>
+            <a class="btn-app btn-quiet" href="{{ url_for('notebook') }}">View notebook</a>
         </div>
     </div>
-    <div class="panel">
-        <img class="screenshot" src="{{ url_for('static', filename='home_page.png') }}" alt="Application home page screenshot">
+    <form class="panel scan-panel" method="post" action="{{ url_for('url') }}">
+        <div class="scan-title">Run a quick scan</div>
+        <p class="muted mb-4">Paste a URL and get a clear risk readout from the trained model.</p>
+        <label class="label" for="url">Website URL</label>
+        <input class="form-control url-input mb-3" id="url" name="url" placeholder="https://example.com" required>
+        <button class="btn-app btn-main w-100" type="submit">Analyze link</button>
+        <div class="note-strip mt-3">
+            <strong>Note</strong>
+            <span>Use this as a support signal, not as the only security decision.</span>
+        </div>
+    </form>
+</section>
+
+<section class="section metric-grid">
+    <div class="metric">
+        <strong>30</strong>
+        <span>URL and webpage features extracted for each scan.</span>
+    </div>
+    <div class="metric">
+        <strong>ML</strong>
+        <span>Saved classifier produces safe and phishing probabilities.</span>
+    </div>
+    <div class="metric">
+        <strong>Flask</strong>
+        <span>Frontend, account pages, and prediction flow served as a web app.</span>
     </div>
 </section>
 {% endblock %}

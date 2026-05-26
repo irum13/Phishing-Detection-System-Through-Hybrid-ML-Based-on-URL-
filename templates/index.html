@@ -1,18 +1,26 @@
 {% extends "base.html" %}
 {% block title %}Check URL - Phishing Detection System{% endblock %}
 {% block content %}
-<div class="panel">
-    <h1 class="h3 fw-bold">Check a URL</h1>
-    <p class="muted">Enter a complete website address or domain name.</p>
-    {% if error %}<div class="alert alert-danger">{{ error }}</div>{% endif %}
-    <form method="post" action="{{ url_for('url') }}" class="row g-3">
-        <div class="col-md-9">
-            <label class="form-label" for="url">URL</label>
-            <input class="form-control" id="url" name="url" placeholder="https://example.com" required>
+<section class="split-grid">
+    <div class="page-head">
+        <div class="eyebrow">URL checker</div>
+        <h1>Analyze a website address.</h1>
+        <p class="hero-text">The app extracts URL, domain, and page-level features, then sends them to the trained model for a phishing risk prediction.</p>
+        <div class="feature-grid">
+            <div class="feature-item"><strong>Structure</strong><span>Length, symbols, redirects, subdomains, HTTPS, and shortened URL checks.</span></div>
+            <div class="feature-item"><strong>Domain</strong><span>WHOIS, age, registration length, DNS, traffic, and reputation signals.</span></div>
+            <div class="feature-item"><strong>Page signals</strong><span>Forms, anchors, scripts, iframes, favicon, and external resource behavior.</span></div>
         </div>
-        <div class="col-md-3 d-flex align-items-end">
-            <button class="btn btn-primary w-100" type="submit">Analyze</button>
-        </div>
-    </form>
-</div>
+    </div>
+    <div class="panel scan-panel">
+        <div class="scan-title">Start scan</div>
+        <p class="muted mb-4">Enter a complete website address or domain name.</p>
+        {% if error %}<div class="alert alert-danger">{{ error }}</div>{% endif %}
+        <form method="post" action="{{ url_for('url') }}">
+            <label class="label" for="url">URL to analyze</label>
+            <input class="form-control url-input mb-3" id="url" name="url" placeholder="https://example.com" required>
+            <button class="btn-app btn-main w-100" type="submit">Analyze URL</button>
+        </form>
+    </div>
+</section>
 {% endblock %}

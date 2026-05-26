@@ -1,12 +1,19 @@
 {% extends "base.html" %}
 {% block title %}Notebook - Phishing Detection System{% endblock %}
 {% block content %}
-<div class="panel">
-    <h1 class="h3 fw-bold">Project notebook</h1>
-    <p class="muted">The training notebook is included in this repository as <code>org.ipynb</code>.</p>
-    <div class="d-flex gap-2 flex-wrap">
-        <a class="btn btn-primary" href="https://nbviewer.org/github/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/main/org.ipynb">View on Nbviewer</a>
-        <a class="btn btn-outline-secondary" href="https://colab.research.google.com/github/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/main/org.ipynb">Open in Colab</a>
+<section class="split-grid">
+    <div class="page-head">
+        <div class="eyebrow">Research notebook</div>
+        <h1>Review the training workflow.</h1>
+        <p class="hero-text">The notebook contains the dataset exploration, preprocessing, model experiments, and training work behind the Flask prediction flow.</p>
     </div>
-</div>
+    <div class="panel scan-panel">
+        <div class="scan-title">Open notebook</div>
+        <p class="muted">Use nbviewer for a clean preview or Colab to run the notebook online.</p>
+        <div class="actions">
+            <a class="btn-app btn-main" href="https://nbviewer.org/github/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/main/org.ipynb">View on nbviewer</a>
+            <a class="btn-app btn-quiet" href="https://colab.research.google.com/github/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/main/org.ipynb">Open in Colab</a>
+        </div>
+    </div>
+</section>
 {% endblock %}
