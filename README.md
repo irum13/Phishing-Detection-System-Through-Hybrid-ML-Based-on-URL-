@@ -37,7 +37,6 @@ Live frontend: https://your-render-app-name.onrender.com
 - Python 3.10
 - Flask
 - scikit-learn
-- imbalanced-learn
 - NumPy and pandas
 - BeautifulSoup, requests, whois, and googlesearch-python
 - SQLite
@@ -70,6 +69,12 @@ Live frontend: https://your-render-app-name.onrender.com
 
    ```sh
    pip install -r requirements.txt
+   ```
+
+   To run the notebook locally as well, install the notebook extras:
+
+   ```sh
+   pip install -r requirements-notebook.txt
    ```
 
 4. Start the Flask app:
@@ -153,6 +158,7 @@ The project workflow includes:
 
 - Use Python 3.10 for best compatibility with the saved `model.pkl`.
 - The model was saved with an older scikit-learn version, so `requirements.txt` pins compatible ML packages.
+- `requirements.txt` is kept focused on the Flask web app so Render can deploy it cleanly. Notebook-only packages are listed in `requirements-notebook.txt`.
 - This app is an educational phishing-detection project and should not be used as the only security decision system.
 - Some feature extraction methods depend on external websites, WHOIS data, DNS lookups, and search results, so predictions can vary with network availability.
 
