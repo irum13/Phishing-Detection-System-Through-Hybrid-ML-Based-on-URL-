@@ -1,9 +1,9 @@
-imblearn
+imbalanced-learn==0.9.1
 matplotlib
-numpy
+numpy==1.26.4
 pandas
 seaborn
-scikit-learn
+scikit-learn==1.0.2
 gunicorn
 beautifulsoup4
 requests

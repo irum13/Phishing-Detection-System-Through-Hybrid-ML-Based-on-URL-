@@ -33,8 +33,10 @@ window.onscroll = function () {
 };
 
 function scrollFunction() {
+    if (!mybutton) {
+        return;
+    }
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        console.log(document.body.scrollTop);
         mybutton.style.display = "block";
     } else {
         mybutton.style.display = "none";
@@ -51,6 +53,7 @@ function topFunction() {
 function validateForm() {
     var name = document.forms["myForm"]["name"].value;
     var email = document.forms["myForm"]["email"].value;
+    var subject = document.forms["myForm"]["subject"].value;
     var comments = document.forms["myForm"]["comments"].value;
     document.getElementById("error-msg").style.opacity = 0;
     document.getElementById("error-msg").innerHTML = "";
@@ -85,9 +88,9 @@ function validateForm() {
             document.forms["myForm"]["comments"].value = "";
         }
     };
-    xhttp.open("POST", "php/contact.php", true);
+    xhttp.open("POST", "/contact", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("name=" + name + "&email=" + email + "&comments=" + comments);
+    xhttp.send("name=" + name + "&email=" + email + "&subject=" + subject + "&comments=" + comments);
     return false;
 }
 

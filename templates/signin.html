@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Login - Phishing Detection System{% endblock %}
+{% block content %}
+<div class="panel" style="max-width: 560px; margin: 0 auto;">
+    <h1 class="h3 fw-bold">Login</h1>
+    {% if message %}<div class="alert alert-success">{{ message }}</div>{% endif %}
+    {% if error %}<div class="alert alert-danger">{{ error }}</div>{% endif %}
+    <form method="post" action="{{ url_for('signin') }}" class="vstack gap-3">
+        <div>
+            <label class="form-label" for="user">Username</label>
+            <input class="form-control" id="user" name="user" required>
+        </div>
+        <div>
+            <label class="form-label" for="password">Password</label>
+            <input class="form-control" id="password" name="password" type="password" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Login</button>
+        <a href="{{ url_for('signup') }}">Create an account</a>
+    </form>
+</div>
+{% endblock %}

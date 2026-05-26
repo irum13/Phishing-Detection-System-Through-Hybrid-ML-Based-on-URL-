@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Home - Phishing Detection System{% endblock %}
+{% block content %}
+<section class="hero">
+    <div>
+        <p class="text-uppercase fw-semibold text-primary">Hybrid ML URL analysis</p>
+        <h1 class="display-5 fw-bold">Phishing Detection System</h1>
+        <p class="lead muted">Check suspicious URLs with a trained machine-learning model using lexical, domain, and page-signal features.</p>
+        <div class="d-flex gap-2 flex-wrap">
+            <a class="btn btn-primary btn-lg" href="{{ url_for('url') }}">Check a URL</a>
+            <a class="btn btn-outline-secondary btn-lg" href="{{ url_for('about') }}">Project details</a>
+        </div>
+    </div>
+    <div class="panel">
+        <img class="screenshot" src="{{ url_for('static', filename='home_page.png') }}" alt="Application home page screenshot">
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}About - Phishing Detection System{% endblock %}
+{% block content %}
+<div class="panel">
+    <h1 class="h3 fw-bold">About the project</h1>
+    <p>This project detects phishing URLs using 30 URL, domain, and page features with a trained machine-learning model.</p>
+    <div class="row g-3 mt-2">
+        <div class="col-md-4"><div class="p-3 border rounded"><strong>Feature extraction</strong><br><span class="muted">URL length, HTTPS, subdomains, anchors, redirects, and domain age.</span></div></div>
+        <div class="col-md-4"><div class="p-3 border rounded"><strong>Prediction</strong><br><span class="muted">A saved classifier produces phishing and legitimate probabilities.</span></div></div>
+        <div class="col-md-4"><div class="p-3 border rounded"><strong>Interface</strong><br><span class="muted">Flask routes provide signup, login, URL search, and results pages.</span></div></div>
+    </div>
+</div>
+{% endblock %}

@@ -63,7 +63,7 @@ Our model employs advanced techniques like **canopy feature selection, cross-val
 ## 🛠️ Installation & Usage
 1. Clone the repository:
    ```sh
-   git clone (https://github.com/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-)
+   git clone https://github.com/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-.git
    ```
 2. Install dependencies:
    ```sh
@@ -84,22 +84,22 @@ If you want to run this notebook online, open it in **Google Colab**:
 ## 📸 Application Screenshots
 
 ### 🏠 Home Page
-![Home Page](https://github.com/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/bd7c7efba647e0f574dabdbffd29ee23d8e1d74b/home_page.png)
+![Home Page](home_page.png)
 
 ### 📝 User Signup
-![User Signup](https://github.com/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/bd7c7efba647e0f574dabdbffd29ee23d8e1d74b/sign_up_page.png)
+![User Signup](sign_up_page.png)
 
 ### 🔐 User Login
-![User Login](https://github.com/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/bd7c7efba647e0f574dabdbffd29ee23d8e1d74b/login_page.png)
+![User Login](login_page.png)
 
 ### 🔍 URL Search Page
-![URL Search Page](https://github.com/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/bd7c7efba647e0f574dabdbffd29ee23d8e1d74b/url_search_page.png)
+![URL Search Page](url_search_page.png)
 
 ### 📊 URL Result Page 1
-![Result Page 1](https://github.com/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/bd7c7efba647e0f574dabdbffd29ee23d8e1d74b/url_result_page_1.png)
+![Result Page 1](url_result_page_1.png)
 
 ### 📊 URL Result Page 2
-![Result Page 2](https://github.com/irum13/Phishing-Detection-System-Through-Hybrid-ML-Based-on-URL-/blob/bd7c7efba647e0f574dabdbffd29ee23d8e1d74b/url_result_page_2.png)
+![Result Page 2](url_result_page_2.png)
 
 ---
 📢 *If you like this project, don't forget to star ⭐ the repo!*

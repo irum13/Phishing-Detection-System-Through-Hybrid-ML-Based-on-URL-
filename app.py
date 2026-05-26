@@ -1,140 +1,182 @@
-import numpy as np
-from flask import Flask, request, jsonify, render_template
-import joblib
+import os
+import pickle
 import sqlite3
+from pathlib import Path
 
 import numpy as np
-import pandas as pd
-from sklearn import metrics 
-import warnings
-import pickle
-warnings.filterwarnings('ignore')
+from flask import Flask, redirect, render_template, request, url_for
+
 from feature import FeatureExtraction
 
-import pandas as pd
-import numpy as np
-import pickle
-import sqlite3
-import random
 
-import smtplib 
-from email.message import EmailMessage
-from datetime import datetime
+BASE_DIR = Path(__file__).resolve().parent
+DB_PATH = BASE_DIR / "signup.db"
+MODEL_PATH = BASE_DIR / "model.pkl"
 
-app = Flask(__name__)
-
-file = open("model.pkl","rb")
-gbc = pickle.load(file)
-file.close()
-
-@app.route('/index')
-def index():
-    return render_template('index.html')
+app = Flask(__name__, static_folder=str(BASE_DIR), static_url_path="/static")
+gbc = None
 
 
+def get_model():
+    global gbc
+    if gbc is not None:
+        return gbc
+
+    with MODEL_PATH.open("rb") as file:
+        gbc = pickle.load(file)
+    return gbc
+
+
+def init_db():
+    with sqlite3.connect(DB_PATH) as con:
+        con.execute(
+            """
+            CREATE TABLE IF NOT EXISTS info (
+                user TEXT PRIMARY KEY,
+                email TEXT,
+                password TEXT NOT NULL,
+                mobile TEXT,
+                name TEXT
+            )
+            """
+        )
+
+
+def normalize_url(raw_url):
+    raw_url = raw_url.strip()
+    if raw_url and not raw_url.startswith(("http://", "https://")):
+        return f"https://{raw_url}"
+    return raw_url
+
+
+@app.route("/")
+@app.route("/home")
+def home():
+    return render_template("home.html")
+
+
+@app.route("/index")
 @app.route("/url", methods=["GET", "POST"])
 def url():
     if request.method == "POST":
+        submitted_url = normalize_url(request.form.get("url", ""))
+        if not submitted_url:
+            return render_template("index.html", error="Please enter a URL.", xx=-1)
 
-        url = request.form["url"]
-        obj = FeatureExtraction(url)
-        x = np.array(obj.getFeaturesList()).reshape(1,30) 
+        try:
+            model = get_model()
+            obj = FeatureExtraction(submitted_url)
+            x = np.array(obj.getFeaturesList()).reshape(1, 30)
+            y_pred = model.predict(x)[0]
+            probabilities = model.predict_proba(x)[0]
+        except Exception as exc:
+            return render_template(
+                "index.html",
+                error=f"Unable to analyze this URL: {exc}",
+                xx=-1,
+            )
 
-        y_pred =gbc.predict(x)[0]
-        #1 is safe       
-        #-1 is unsafe
-        y_pro_phishing = gbc.predict_proba(x)[0,0]
-        y_pro_non_phishing = gbc.predict_proba(x)[0,1]
-        # if(y_pred ==1 ):
-        pred = "It is {0:.2f} % safe to go ".format(y_pro_phishing*100)
-        return render_template('result.html',xx =round(y_pro_non_phishing,2),url=url )
-    return render_template("index.html", xx =-1)
+        phishing_probability = float(probabilities[0])
+        safe_probability = float(probabilities[1])
+        is_safe = int(y_pred) == 1
+
+        return render_template(
+            "result.html",
+            url=submitted_url,
+            xx=round(safe_probability, 2),
+            safe_percent=round(safe_probability * 100, 2),
+            phishing_percent=round(phishing_probability * 100, 2),
+            is_safe=is_safe,
+        )
+
+    return render_template("index.html", xx=-1)
+
 
 @app.route("/about")
 def about():
     return render_template("about.html")
 
 
-@app.route('/')
-@app.route('/home')
-def home():
-	return render_template('home.html')
+@app.route("/contact", methods=["POST"])
+def contact():
+    return "Thanks, your message was received."
 
-@app.route('/logon')
+
+@app.route("/logon")
 def logon():
-	return render_template('signup.html')
-
-@app.route('/login')
-def login():
-	return render_template('signin.html')
-
-
-@app.route("/signup")
-def signup():
-    global otp, username, name, email, number, password
-    username = request.args.get('user','')
-    name = request.args.get('name','')
-    email = request.args.get('email','')
-    number = request.args.get('mobile','')
-    password = request.args.get('password','')
-    otp = random.randint(1000,5000)
-    print(otp)
-    msg = EmailMessage()
-    msg.set_content("Your OTP is : "+str(otp))
-    msg['Subject'] = 'OTP'
-    msg['From'] = "evotingotp4@gmail.com"
-    msg['To'] = email
-    
-    
-    s = smtplib.SMTP('smtp.gmail.com', 587)
-    s.starttls()
-    s.login("evotingotp4@gmail.com", "xowpojqyiygprhgr")
-    s.send_message(msg)
-    s.quit()
-    return render_template("val.html")
-
-@app.route('/predict1', methods=['POST'])
-def predict1():
-    global otp, username, name, email, number, password
-    if request.method == 'POST':
-        message = request.form['message']
-        print(message)
-        if int(message) == otp:
-            print("TRUE")
-            con = sqlite3.connect('signup.db')
-            cur = con.cursor()
-            cur.execute("insert into `info` (`user`,`email`, `password`,`mobile`,`name`) VALUES (?, ?, ?, ?, ?)",(username,email,password,number,name))
-            con.commit()
-            con.close()
-            return render_template("signin.html")
     return render_template("signup.html")
 
-@app.route("/signin")
+
+@app.route("/login")
+def login():
+    return render_template("signin.html")
+
+
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    if request.method == "GET" and not request.args:
+        return render_template("signup.html")
+
+    user = request.values.get("user", "").strip()
+    name = request.values.get("name", "").strip()
+    email = request.values.get("email", "").strip()
+    mobile = request.values.get("mobile", "").strip()
+    password = request.values.get("password", "")
+
+    if not user or not password:
+        return render_template("signup.html", error="Username and password are required.")
+
+    try:
+        with sqlite3.connect(DB_PATH) as con:
+            con.execute(
+                "INSERT INTO info (user, email, password, mobile, name) VALUES (?, ?, ?, ?, ?)",
+                (user, email, password, mobile, name),
+            )
+    except sqlite3.IntegrityError:
+        return render_template("signup.html", error="That username already exists.")
+
+    return render_template("signin.html", message="Account created. Please sign in.")
+
+
+@app.route("/predict1", methods=["POST"])
+def predict1():
+    # Backward-compatible endpoint for the old OTP page. The local app now signs up directly.
+    return redirect(url_for("login"))
+
+
+@app.route("/signin", methods=["GET", "POST"])
 def signin():
+    user = request.values.get("user", "").strip()
+    password = request.values.get("password", "")
 
-    mail1 = request.args.get('user','')
-    password1 = request.args.get('password','')
-    con = sqlite3.connect('signup.db')
-    cur = con.cursor()
-    cur.execute("select `user`, `password` from info where `user` = ? AND `password` = ?",(mail1,password1,))
-    data = cur.fetchone()
-
-    if data == None:
-        return render_template("signin.html")    
-
-    elif mail1 == str(data[0]) and password1 == str(data[1]):
-        return render_template("index.html")
-    else:
+    if not user or not password:
         return render_template("signin.html")
+
+    with sqlite3.connect(DB_PATH) as con:
+        cur = con.cursor()
+        cur.execute(
+            "SELECT user, password FROM info WHERE user = ? AND password = ?",
+            (user, password),
+        )
+        data = cur.fetchone()
+
+    if data:
+        return render_template("index.html", user=user, xx=-1)
+
+    return render_template("signin.html", error="Invalid username or password.")
+
 
 @app.route("/notebook")
 def notebook():
     return render_template("notebook.html")
 
 
+@app.route("/val")
+def val():
+    return render_template("val.html")
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
-    port = int(os.environ.get("PORT", 10000))  # Use the port provided by Render
+    init_db()
+    port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=True)

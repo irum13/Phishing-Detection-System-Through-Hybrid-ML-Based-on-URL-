@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Check URL - Phishing Detection System{% endblock %}
+{% block content %}
+<div class="panel">
+    <h1 class="h3 fw-bold">Check a URL</h1>
+    <p class="muted">Enter a complete website address or domain name.</p>
+    {% if error %}<div class="alert alert-danger">{{ error }}</div>{% endif %}
+    <form method="post" action="{{ url_for('url') }}" class="row g-3">
+        <div class="col-md-9">
+            <label class="form-label" for="url">URL</label>
+            <input class="form-control" id="url" name="url" placeholder="https://example.com" required>
+        </div>
+        <div class="col-md-3 d-flex align-items-end">
+            <button class="btn btn-primary w-100" type="submit">Analyze</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

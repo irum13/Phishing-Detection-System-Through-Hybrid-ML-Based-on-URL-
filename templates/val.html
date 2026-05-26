@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Verification - Phishing Detection System{% endblock %}
+{% block content %}
+<div class="panel">
+    <h1 class="h3 fw-bold">Verification not required</h1>
+    <p class="muted">The local version creates accounts directly and does not depend on email OTP delivery.</p>
+    <a class="btn btn-primary" href="{{ url_for('login') }}">Go to login</a>
+</div>
+{% endblock %}
